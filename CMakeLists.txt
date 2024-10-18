@@ -14,5 +14,6 @@ add_executable(Project4
         sorting-algorithms/quickSort.h
         sorting-algorithms/radixSort.h
         sorting-algorithms/selectionSort.h
-        main.cpp
-        stability-test/contactsList.h)
+        Airport.h
+        stability-test/contactsList.h
+        main.cpp)
