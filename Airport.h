@@ -33,23 +33,23 @@ public:
           bool Wind_Indic);
 
   // Getters
-  std::string getTheGeom();
-  std::string getFacType();
-  std::string getFieldOffice();
-  std::string getStateName();
-  std::string getCounty();
-  std::string getCity();
-  std::string getFacName();
-  std::string getFacUse();
-  std::string getSectional();
-  std::string getFuelTypes();
-  int getObjectid();
-  double getElevation();
-  double getUnicom();
-  double getCtaf();
-  bool isAtcTower();
-  bool isLandingFee();
-  bool isWindIndic();
+   std::string getTheGeom();
+   std::string getFacType();
+   std::string getFieldOffice();
+   std::string getStateName();
+   std::string getCounty();
+   std::string getCity();
+   std::string getFacName();
+   std::string getFacUse();
+   std::string getSectional();
+   std::string getFuelTypes();
+   int getObjectid();
+   double getElevation();
+   double getUnicom();
+   double getCtaf();
+   bool isAtcTower();
+   bool isLandingFee();
+   bool isWindIndic();
 
   // Setters
   void setTheGeom(std::string theGeom);
@@ -72,7 +72,7 @@ public:
   /**
    * Overload stream insertion operator for pretty printing
    */
-  friend std::ostream &operator<<(std::ostream &outs, const Airport &kObj) {
+  friend std::ostream &operator<<(std::ostream &outs, Airport &kObj) {
     outs << std::right                         // right align numbers
          << std::fixed                         // fix decimal in place
          << std::setprecision(4)               // four digits after decimal
@@ -98,64 +98,63 @@ public:
   /**
    * Overload < operator for object comparison
    */
-  friend bool operator<(const Airport &lhs, const Airport &rhs) {
+  friend bool operator<(Airport &lhs, Airport &rhs) {
     return lhs.getObjectid() < rhs.getObjectid();
   }
 
   /**
    * Overload > operator for object comparison
    */
-  friend bool operator>(const Airport &lhs, const Airport &rhs) {
+  friend bool operator>(Airport &lhs, Airport &rhs) {
     return lhs.getObjectid() > rhs.getObjectid();
   }
 
   /**
    * Overload <= operator for object comparison
    */
-  friend bool operator<=(const Airport &lhs, const Airport &rhs) {
+  friend bool operator<=(Airport &lhs, Airport &rhs) {
     return lhs.getObjectid() <= rhs.getObjectid();
   }
 
   /**
    * Overload >= operator for object comparison
    */
-  friend bool operator>=(const Airport &lhs, const Airport &rhs) {
+  friend bool operator>=(Airport &lhs, Airport &rhs) {
     return lhs.getObjectid() >= rhs.getObjectid();
   }
 
   /**
    * Overload == operator for object comparison
    */
-  friend bool operator==(const Airport &lhs, const Airport &rhs) {
+  friend bool operator==(Airport &lhs, Airport &rhs) {
     return lhs.getObjectid() == rhs.getObjectid();
   }
 
   /**
    * Overload != operator for object comparison
    */
-  friend bool operator!=(const Airport &lhs, const Airport &rhs) {
+  friend bool operator!=(Airport &lhs, Airport &rhs) {
     return lhs.getObjectid() != rhs.getObjectid();
   }
-// Global functions
+  // Global functions
 
-/**
- * Read data into a vector from the downloaded CSV file.
- * Returns true if everything goes well; false otherwise.
- */
-bool loadFromFile(std::string fn, std::vector<Airport> &objs);
+  /**
+   * Read data into a vector from the downloaded CSV file.
+   * Returns true if everything goes well; false otherwise.
+   */
+  bool loadFromFile(std::string fn, std::vector<Airport> &objs);
 
-/**
- * This verifies that all fields that should be set are set with
- * good values.
- */
-void verifyAllFieldsSet(std::vector<Airport> &objs);
+  /**
+   * This verifies that all fields that should be set are set with
+   * good values.
+   */
+  void verifyAllFieldsSet(std::vector<Airport> &objs);
 
-/**
- * Airport object tests.
- * To ensure constructors, getters, and setters all work properly.
- */
-bool AirportTest();
-
+  /**
+   * Airport object tests.
+   * To ensure constructors, getters, and setters all work properly.
+   */
+  bool AirportTest();
 };
 
 #endif // PROJECT2_AIRPORT_H
