@@ -136,26 +136,26 @@ public:
   friend bool operator!=(const Airport &lhs, const Airport &rhs) {
     return lhs.getObjectid() != rhs.getObjectid();
   }
-};
-
 // Global functions
 
 /**
  * Read data into a vector from the downloaded CSV file.
  * Returns true if everything goes well; false otherwise.
  */
-bool loadFromFile(std::string fn, std::vector<Airport> &objs); 
+bool loadFromFile(std::string fn, std::vector<Airport> &objs);
 
 /**
  * This verifies that all fields that should be set are set with
  * good values.
  */
-void verifyAllFieldsSet(std::vector<Airport> &objs); 
+void verifyAllFieldsSet(std::vector<Airport> &objs);
 
 /**
  * Airport object tests.
  * To ensure constructors, getters, and setters all work properly.
  */
-bool AirportTest(); 
+bool AirportTest();
+
+};
 
 #endif // PROJECT2_AIRPORT_H
