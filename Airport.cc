@@ -92,80 +92,11 @@ void Airport::setAtcTower(bool atcTower) { this->Atc_Tower = atcTower; }
 void Airport::setLandingFee(bool LandingFee) { this->Landing_Fee = LandingFee; }
 void Airport::setWindIndic(bool windIndic) { this->Wind_Indic = windIndic; }
 
-friend std::ostream &operator<<(std::ostream &outs, const Airport &kObj) {
-  outs << std::right                         // right align numbers
-       << std::fixed                         // fix decimal in place
-       << std::setprecision(4)               // four digits after decimal
-       << std::setw(8) << kObj.getObjectid() // take up six characters
-       << std::left                          // left align strings
-       << "  " << std::setw(50) << kObj.getTheGeom() << std::setw(15)
-       << kObj.getFacType() << std::setw(16) << kObj.getFieldOffice()
-       << std::setw(18) << kObj.getStateName() << std::setw(23)
-       << kObj.getCounty() << std::setw(27) << kObj.getCity() << std::setw(46)
-       << kObj.getFacName() << std::setw(16) << kObj.getFacUse()
-       << std::setw(12) << kObj.getElevation() << std::setw(20)
-       << kObj.getSectional() << std::setw(19) << kObj.getFuelTypes()
-       << std::setw(11) << kObj.isAtcTower() << std::setw(10)
-       << kObj.getUnicom() << std::setw(10) << kObj.getCtaf() << std::setw(14)
-       << kObj.isLandingFee() << std::setw(13) << kObj.isWindIndic();
-
-  return outs;
-}
-
-// We don't need these right away, but we will for future projects
-// Compare objects using the unique identifying field (for Airport, rowId)
-
-/**
- * Overload < operator for object comparison
- */
-friend bool operator<(const Airport &lhs, const Airport &rhs) {
-  return lhs.getObjectid() < rhs.getObjectid();
-}
-
-/**
- * Overload > operator for object comparison
- */
-friend bool operator>(const Airport &lhs, const Airport &rhs) {
-  return lhs.getObjectid() > rhs.getObjectid();
-}
-
-/**
- * Overload <= operator for object comparison
- */
-friend bool operator<=(const Airport &lhs, const Airport &rhs) {
-  return lhs.getObjectid() <= rhs.getObjectid();
-}
-
-/**
- * Overload >= operator for object comparison
- */
-friend bool operator>=(const Airport &lhs, const Airport &rhs) {
-  return lhs.getObjectid() >= rhs.getObjectid();
-}
-
-/**
- * Overload == operator for object comparison
- */
-friend bool operator==(const Airport &lhs, const Airport &rhs) {
-  return lhs.getObjectid() == rhs.getObjectid();
-}
-
-/**
- * Overload != operator for object comparison
- */
-friend bool operator!=(const Airport &lhs, const Airport &rhs) {
-  return lhs.getObjectid() != rhs.getObjectid();
-}
-}
-;
-
-// Global functions
-
 /**
  * Read data into a vector from the downloaded CSV file.
  * Returns true if everything goes well; false otherwise.
  */
-bool loadFromFile(std::string fn, std::vector<Airport> &objs) {
+bool Airport::loadFromFile(std::string fn, std::vector<Airport> &objs) {
   std::ifstream fin;
   fin.open(fn);
 
@@ -344,7 +275,7 @@ bool loadFromFile(std::string fn, std::vector<Airport> &objs) {
  * This verifies that all fields that should be set are set with
  * good values.
  */
-void verifyAllFieldsSet(std::vector<Airport> &objs) {
+void Airport::verifyAllFieldsSet(std::vector<Airport> &objs) {
   int i = 0;
   for (Airport &airport : objs) {
     // Row ID should always = i + 1
@@ -363,7 +294,7 @@ void verifyAllFieldsSet(std::vector<Airport> &objs) {
  * Airport object tests.
  * To ensure constructors, getters, and setters all work properly.
  */
-bool AirportTest() {
+bool Airport::AirportTest() {
   bool passed = true;
   Airport testObject = Airport();
   // Test setters and getters
