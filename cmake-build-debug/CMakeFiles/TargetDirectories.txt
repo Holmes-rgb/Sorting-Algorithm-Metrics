@@ -1,3 +1,0 @@
-/home/lukeholmes/2023-2024/CS2240/Projects/Project4-Lholmes/cmake-build-debug/CMakeFiles/Project4.dir
-/home/lukeholmes/2023-2024/CS2240/Projects/Project4-Lholmes/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/lukeholmes/2023-2024/CS2240/Projects/Project4-Lholmes/cmake-build-debug/CMakeFiles/rebuild_cache.dir
