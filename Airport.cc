@@ -96,7 +96,7 @@ void Airport::setWindIndic(bool windIndic) { this->Wind_Indic = windIndic; }
  * Read data into a vector from the downloaded CSV file.
  * Returns true if everything goes well; false otherwise.
  */
-bool Airport::loadFromFile(std::string fn, std::vector<Airport> &objs) {
+bool loadFromFile(std::string fn, std::vector<Airport> &objs) {
   std::ifstream fin;
   fin.open(fn);
 
@@ -275,7 +275,7 @@ bool Airport::loadFromFile(std::string fn, std::vector<Airport> &objs) {
  * This verifies that all fields that should be set are set with
  * good values.
  */
-void Airport::verifyAllFieldsSet(std::vector<Airport> &objs) {
+void verifyAllFieldsSet(std::vector<Airport> &objs) {
   int i = 0;
   for (Airport &airport : objs) {
     // Row ID should always = i + 1
@@ -294,7 +294,7 @@ void Airport::verifyAllFieldsSet(std::vector<Airport> &objs) {
  * Airport object tests.
  * To ensure constructors, getters, and setters all work properly.
  */
-bool Airport::AirportTest() {
+bool AirportTest() {
   bool passed = true;
   Airport testObject = Airport();
   // Test setters and getters
