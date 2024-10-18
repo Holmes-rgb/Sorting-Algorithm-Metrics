@@ -6,11 +6,13 @@
 #include "Airport.h"
 #include <random>
 #include <chrono>
+#include <cstring>
+
 using namespace std;
 
 void stabilityTest();
 
-int main() {
+int main(int argc, char* argv[]) {
     int reads = 0;
     int writes = 0;
     std::vector<Airport> airports;
@@ -37,8 +39,23 @@ int main() {
         selectionSort(airports,reads,writes);
         mergeSort(airports,reads,writes);
         heapSort(airports,reads,writes);
-        selectionSort(airports,reads,writes);
+    }
 
+    int size = atoi(argv[1]);
+
+
+    if (strcmp(argv[2], "Selection") == 0){
+        airports.resize(size * 100);
+        selectionSort(airports, reads, writes);
+    }else if (strcmp(argv[2], "Merge") == 0){
+        airports.resize(size * 100);
+        mergeSort(airports, reads, writes);
+    }else if (strcmp(argv[2], "Heap") == 0){
+        airports.resize(size * 100);
+        heapSort(airports,reads,writes);
+    }else if (strcmp(argv[2], "Bubble") == 0){
+        airports.resize(size * 100);
+        bubbleSort(airports,reads,writes);
     }
 
 
