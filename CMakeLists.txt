@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(.)
 
-add_executable(Project4
+add_executable(sorting_binary
         sorting-algorithms/bubbleSort.h
         sorting-algorithms/heapSort.h
         sorting-algorithms/insertionSort.h
