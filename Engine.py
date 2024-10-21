@@ -9,6 +9,7 @@ import time
 from netaddr.strategy.ipv6 import int_to_str
 from pyatspi import Selection
 
+'''
 try:
     # This is Python's way of calling the command line. We use it to compile the C++ files.
     subprocess.check_output("g++ -std=c++17 main.cpp", stdin=None, stderr=subprocess.STDOUT, shell=True)
@@ -16,13 +17,14 @@ except subprocess.CalledProcessError as e:
     # There were compiler errors in BubbleSort.cpp. Print out the error message and exit the program.
     print("<p>", e.output, "</p>")
     raise SystemExit
+    '''
 
 algorithms = {'Selection': [], 'Merge': [], 'Heap': [], 'Bubble': []}
 
 for algorithm in algorithms:
     for i in range(1, 11):
         # Start the clock
-        execute = "./a.out " +  str(i*100) + " " + algorithm
+        execute = "./sorting_binary " +  str(i*100) + " " + algorithm
         tic = time.time()
         subprocess.check_output(execute, stdin=None, stderr=subprocess.STDOUT, shell=True)
         toc = time.time()
