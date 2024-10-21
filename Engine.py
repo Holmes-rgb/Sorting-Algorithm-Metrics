@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 from distutils.command.build import build
 
+=======
+>>>>>>> 13b2d9b0ec4f59731127f28bd161e9ea26b8ae02
 import matplotlib.pyplot as plt
 import os
 import platform
