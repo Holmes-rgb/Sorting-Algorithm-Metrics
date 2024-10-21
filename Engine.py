@@ -10,7 +10,7 @@ from pyatspi import Selection
 
 
 try:
-    if(not(os.path.exists('/build'))):
+    if os.path.exists('./build'):
         subprocess.check_output("cd build && cmake .. && make", stdin=None, stderr=subprocess.STDOUT, shell=True)
         
     else:
