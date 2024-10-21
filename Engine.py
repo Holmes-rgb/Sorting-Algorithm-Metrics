@@ -1,3 +1,4 @@
+from distutils.command.build import build
 
 import matplotlib.pyplot as plt
 import os
@@ -9,26 +10,31 @@ import time
 from netaddr.strategy.ipv6 import int_to_str
 from pyatspi import Selection
 
-'''
+
 try:
+    if(not(os.path.exists('/build'))):
+        subprocess.check_output("cd build && cmake .. && make", stdin=None, stderr=subprocess.STDOUT, shell=True)
+        
+    else:
+        subprocess.check_output("mkdir build && cd build && cmake .. && make", stdin=None, stderr=subprocess.STDOUT, shell=True)
     # This is Python's way of calling the command line. We use it to compile the C++ files.
-    subprocess.check_output("g++ -std=c++17 main.cpp", stdin=None, stderr=subprocess.STDOUT, shell=True)
+
 except subprocess.CalledProcessError as e:
     # There were compiler errors in BubbleSort.cpp. Print out the error message and exit the program.
     print("<p>", e.output, "</p>")
     raise SystemExit
-    '''
+
 
 algorithms = {'Selection': [], 'Merge': [], 'Heap': [], 'Bubble': []}
 
 for algorithm in algorithms:
     for i in range(1, 11):
         # Start the clock
-        execute = "./sorting_binary " +  str(i*100) + " " + algorithm
+        execute = "./build/sorting_binary " +  str(i*100) + " " + algorithm
         tic = time.time()
         subprocess.check_output(execute, stdin=None, stderr=subprocess.STDOUT, shell=True)
         toc = time.time()
-        # Add the runtime to the list
+        # TODO: Add the runtime to the list
 
 
 # Create a list of the sizes to use for the x axis tick marks
