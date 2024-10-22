@@ -27,12 +27,19 @@ algorithms = {'Selection': [], 'Merge': [], 'Heap': [], 'Bubble': []}
 
 for algorithm in algorithms:
     for i in range(1, 11):
+        print("Starting: " + str(algorithm) + " size " + str(i * 100))
         # Start the clock
         execute = "./build/sorting_binary " +  str(i*100) + " " + algorithm
+        print(execute)
         tic = time.time()
         subprocess.check_output(execute, stdin=None, stderr=subprocess.STDOUT, shell=True)
         toc = time.time()
         # TODO: Add the runtime to the list
+        algorithms[algorithm].append(toc - tic)
+        print("finished: " + str(algorithm) + " size " + str(i*100) + " took " + str(toc - tic) + '\n')
+
+    print("finished " + str(algorithm))
+    print(algorithms[algorithm])
 
 
 # Create a list of the sizes to use for the x axis tick marks
@@ -46,10 +53,10 @@ BubbleX = range(1000, 10001, 1000)
 # The third 1 signals to start at the first subplot (aka subplot 1 out of 1)
 ax = plt.subplot(111)
 
-ax.bar(SelectionX, Selection, width=300, color='r', align='center')
-ax.bar(MergeX, Merge, width=300, color='y', align='center')
-ax.bar(HeapX, Heap, width=300, color='b', align='center')
-ax.bar(BubbleX, Bubble, width=300, color='g', align='center')
+ax.bar(SelectionX, algorithms['Selection'], width=300, color='r', align='center')
+ax.bar(MergeX, algorithms['Merge'], width=300, color='y', align='center')
+ax.bar(HeapX, algorithms['Heap'], width=300, color='b', align='center')
+ax.bar(BubbleX, algorithms['Bubble'], width=300, color='g', align='center')
 # Set the window title
 plt.gcf().canvas.manager.set_window_title('Sort times')
 # Set the graph title

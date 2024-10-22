@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
     bubbleSort(airports, reads, writes);
   }
 
-  stabilityTest();
+  //stabilityTest();
 
   return 0;
 }
