@@ -7,13 +7,13 @@ Answer the following prompts directly in this file:
 
 
 * Analyze the data. Graph the number of reads and writes for each sorting algorithm and look at how the number of reads and writes grows when the size of the data set grows. Compare and contrast the different sorting algorithms and draw conclusions about which sorting algorithms are more efficient. Discuss complexities and their effects.
-  * ![Bubble sort graph](images/Bubble.png)  
+  * ![Bubble sort graph](images/Bubble_Sorting.png)  
   This graph does a great job showing that the time complexity of Bubble sort is O(n<sup>2</sup>). You can see in the graph that both the number of reads and writes increases exponentialy to the point that when 1000 items are being sorted there are 1.5MM reads.
-  * ![Merge sort graph](images/Merge.png)  
+  * ![Merge sort graph](images/Merge_Sorting.png)  
     This graph shows that Merge sort is O(n Log n) time complexity. While not the fastest, one can easily see that the number of reads and writes performed are much less than bubble sort.
-  * ![Heap sort graph](images/Heap.png)  
+  * ![Heap sort graph](images/Heap_Sorting.png)  
     This graph shows that Heap sort is O(n Log n) time complexity. One can also see that the number of reads performed is slightly more than the number of reads made by merge sort, and the graph is slightly more convex showing that the reads and writes are growing at a slightly faster rate.  
-  * ![Selection sort graph](images/Selection.png)  
+  * ![Selection sort graph](images/Selection_Sorting.png)  
   This graph shows that selection sort is O(n<sup>2</sup>) time complexity, especially for the reads. While comparing just the number of read opperations to bubble sort, Selection is only a bit more efficent, but the total number of operations is much less, because the number of writes is significantly less complex.
 
 

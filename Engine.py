@@ -42,32 +42,28 @@ for algorithm in algorithms:
     print(algorithms[algorithm])
 
 
+
+
+
+
 # Create a list of the sizes to use for the x axis tick marks
 sizes = range(1000, 10001, 1000)
-# Create lists that are offset so the Python bars aren't overlapping with C++ bars in the graph
-SelectionX = range(850, 10001, 1000)
-MergeX = range(1150, 10501, 1000)
-HeapX = range(1000, 10001, 1000)
-BubbleX = range(1000, 10001, 1000)
-# Create a graph plot with one (1) row and one (1) column.
-# The third 1 signals to start at the first subplot (aka subplot 1 out of 1)
-ax = plt.subplot(111)
 
-ax.bar(SelectionX, algorithms['Selection'], width=300, color='r', align='center')
-ax.bar(MergeX, algorithms['Merge'], width=300, color='y', align='center')
-ax.bar(HeapX, algorithms['Heap'], width=300, color='b', align='center')
-ax.bar(BubbleX, algorithms['Bubble'], width=300, color='g', align='center')
-# Set the window title
-plt.gcf().canvas.manager.set_window_title('Sort times')
-# Set the graph title
-plt.title('Sorting Algorithms')
-# Label the x axis
-plt.xlabel('Number of items to sort')
-# Make sure the x-axis tick marks/labels are at each 1000
-plt.xticks(sizes)
-# Label the y axis
-plt.ylabel('Times in seconds')
-# Save the graph to a file
-plt.savefig('Airport_Sorting.png')
-# Display the graph in a new window
-plt.show()
+
+for algorithm in algorithms:
+    ax = plt.subplot(111)
+    ax.bar(range(1000, 10001, 1000), algorithms[algorithm], width=300, color='r', align='center')
+    # Set the window title
+    plt.gcf().canvas.manager.set_window_title(str(algorithm) + ' Sort times')
+    # Set the graph title
+    plt.title(str(algorithm) + ' Sort')
+    # Label the x axis
+    plt.xlabel('Number of items to sort')
+    # Make sure the x-axis tick marks/labels are at each 1000
+    plt.xticks(sizes)
+    # Label the y axis
+    plt.ylabel('Time in seconds')
+    # Save the graph to a file
+    plt.savefig('images/' + str(algorithm) + '_Sorting.png')
+    # Display the graph in a new window
+    plt.show()
