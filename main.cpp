@@ -33,10 +33,12 @@ int main(int argc, char *argv[]) {
 
   if (argc == 1) {
 
-    ofstream Selection("../data/Selection.txt");
-    ofstream Heap("../data/Heap.txt");
-    ofstream Merge("../data/Merge.txt");
-    ofstream Bubble("../data/Bubble.txt");
+    cout << "writing data..." << endl;
+
+    ofstream Selection("./data/Selection.txt");
+    ofstream Heap("./data/Heap.txt");
+    ofstream Merge("./data/Merge.txt");
+    ofstream Bubble("./data/Bubble.txt");
 
     for (int i = 10; i > 0; --i) {
       airports.resize(i * 100);
@@ -44,9 +46,7 @@ int main(int argc, char *argv[]) {
       reads = 0;
       writes = 0;
       selectionSort(airports, reads, writes);
-      Selection << to_string(i * 100) << endl
-                << reads << endl
-                << writes << endl;
+      Selection << to_string(i * 100) << endl << reads << endl << writes << endl;
 
       reads = 0;
       writes = 0;
