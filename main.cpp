@@ -73,25 +73,21 @@ int main(int argc, char *argv[]) {
     Merge.close();
     Heap.close();
     Bubble.close();
-  }
-
-  
-
-
-  int size = atoi(argv[1]);
-
-  if (strcmp(argv[2], "Selection") == 0) {
-    airports.resize(size * 100);
-    selectionSort(airports, reads, writes);
-  } else if (strcmp(argv[2], "Merge") == 0) {
-    airports.resize(size * 100);
-    mergeSort(airports, reads, writes);
-  } else if (strcmp(argv[2], "Heap") == 0) {
-    airports.resize(size * 100);
-    heapSort(airports, reads, writes);
-  } else if (strcmp(argv[2], "Bubble") == 0) {
-    airports.resize(size * 100);
-    bubbleSort(airports, reads, writes);
+  }else{
+      int size = atoi(argv[1]);
+      if (strcmp(argv[2], "Selection") == 0) {
+        airports.resize(size * 100);
+        selectionSort(airports, reads, writes);
+      } else if (strcmp(argv[2], "Merge") == 0) {
+        airports.resize(size * 100);
+        mergeSort(airports, reads, writes);
+      } else if (strcmp(argv[2], "Heap") == 0) {
+        airports.resize(size * 100);
+        heapSort(airports, reads, writes);
+      } else if (strcmp(argv[2], "Bubble") == 0) {
+        airports.resize(size * 100);
+        bubbleSort(airports, reads, writes);
+      }
   }
 
   //stabilityTest();
