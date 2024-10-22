@@ -28,51 +28,47 @@ int main(int argc, char *argv[]) {
     std::cout << "Something went wrong." << std::endl;
   }
 
-  // vector is already sorted, so I shuffled it before sorting
-  // Source https://www.educba.com/c-plus-plus-shuffle/
   unsigned num = chrono::system_clock::now().time_since_epoch().count();
-  ;
   std::shuffle(airports.begin(), airports.end(), default_random_engine(num));
 
-
-
-  if(argc == 1){
+  if (argc == 1) {
 
     ofstream Selection("../data/Selection.txt");
     ofstream Heap("../data/Heap.txt");
     ofstream Merge("../data/Merge.txt");
     ofstream Bubble("../data/Bubble.txt");
 
+    for (int i = 10; i > 0; --i) {
+      airports.resize(i * 100);
 
-    for (int i = 10; i > 0 ; --i) {
-        airports.resize(i * 100);
+      reads = 0;
+      writes = 0;
+      selectionSort(airports, reads, writes);
+      Selection << to_string(i * 100) << endl
+                << reads << endl
+                << writes << endl;
 
-        reads = 0;
-        writes = 0;
-        selectionSort(airports,reads,writes);
-        Selection << to_string(i *100) << endl << reads << endl << writes << endl;
+      reads = 0;
+      writes = 0;
+      mergeSort(airports, reads, writes);
+      Merge << to_string(i * 100) << endl << reads << endl << writes << endl;
 
-        reads = 0;
-        writes = 0;
-        mergeSort(airports,reads,writes);
-        Merge << to_string(i *100) << endl << reads << endl << writes << endl;
+      reads = 0;
+      writes = 0;
+      heapSort(airports, reads, writes);
+      Heap << to_string(i * 100) << endl << reads << endl << writes << endl;
 
-        reads = 0;
-        writes = 0;
-        heapSort(airports,reads,writes);
-        Heap << to_string(i *100) << endl << reads << endl << writes << endl;
-
-        reads = 0;
-        writes = 0;
-        bubbleSort(airports,reads,writes);
-        Bubble << to_string(i *100) << endl << reads << endl << writes << endl;
-
+      reads = 0;
+      writes = 0;
+      bubbleSort(airports, reads, writes);
+      Bubble << to_string(i * 100) << endl << reads << endl << writes << endl;
     }
 
     Selection.close();
     Merge.close();
     Heap.close();
     Bubble.close();
+<<<<<<< HEAD
   }else{
       int size = atoi(argv[1]);
       if (strcmp(argv[2], "Selection") == 0) {
@@ -88,9 +84,27 @@ int main(int argc, char *argv[]) {
         airports.resize(size * 100);
         bubbleSort(airports, reads, writes);
       }
+=======
   }
 
-  //stabilityTest();
+  int size = atoi(argv[1]);
+
+  if (strcmp(argv[2], "Selection") == 0) {
+    airports.resize(size * 100);
+    selectionSort(airports, reads, writes);
+  } else if (strcmp(argv[2], "Merge") == 0) {
+    airports.resize(size * 100);
+    mergeSort(airports, reads, writes);
+  } else if (strcmp(argv[2], "Heap") == 0) {
+    airports.resize(size * 100);
+    heapSort(airports, reads, writes);
+  } else if (strcmp(argv[2], "Bubble") == 0) {
+    airports.resize(size * 100);
+    bubbleSort(airports, reads, writes);
+>>>>>>> 66dbc89f50fd2b76251f86fb891dceeee7a4471a
+  }
+
+  // stabilityTest();
 
   return 0;
 }

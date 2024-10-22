@@ -32,3 +32,4 @@
 *.app
 # Clion
 /cmake-build-debug
+build
