@@ -22,6 +22,9 @@ except subprocess.CalledProcessError as e:
     print("<p>", e.output, "</p>")
     raise SystemExit
 
+# get reads and writes
+subprocess.check_output("./build/sorting_binary", stdin=None, stderr=subprocess.STDOUT, shell=True)
+
 
 algorithms = {'Selection': [], 'Merge': [], 'Heap': [], 'Bubble': []}
 

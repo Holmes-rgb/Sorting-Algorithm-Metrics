@@ -34,12 +34,49 @@ int main(int argc, char *argv[]) {
   ;
   std::shuffle(airports.begin(), airports.end(), default_random_engine(num));
 
-  for (int i = 10; i > 0; --i) {
-    airports.resize(i * 100);
-    selectionSort(airports, reads, writes);
-    mergeSort(airports, reads, writes);
-    heapSort(airports, reads, writes);
+
+
+  if(argc == 1){
+
+    ofstream Selection("../data/Selection.txt");
+    ofstream Heap("../data/Heap.txt");
+    ofstream Merge("../data/Merge.txt");
+    ofstream Bubble("../data/Bubble.txt");
+
+
+    for (int i = 10; i > 0 ; --i) {
+        airports.resize(i * 100);
+
+        reads = 0;
+        writes = 0;
+        selectionSort(airports,reads,writes);
+        Selection << to_string(i *100) << endl << reads << endl << writes << endl;
+
+        reads = 0;
+        writes = 0;
+        mergeSort(airports,reads,writes);
+        Merge << to_string(i *100) << endl << reads << endl << writes << endl;
+
+        reads = 0;
+        writes = 0;
+        heapSort(airports,reads,writes);
+        Heap << to_string(i *100) << endl << reads << endl << writes << endl;
+
+        reads = 0;
+        writes = 0;
+        bubbleSort(airports,reads,writes);
+        Bubble << to_string(i *100) << endl << reads << endl << writes << endl;
+
+    }
+
+    Selection.close();
+    Merge.close();
+    Heap.close();
+    Bubble.close();
   }
+
+  
+
 
   int size = atoi(argv[1]);
 
