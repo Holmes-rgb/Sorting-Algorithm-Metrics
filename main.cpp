@@ -68,7 +68,6 @@ int main(int argc, char *argv[]) {
     Merge.close();
     Heap.close();
     Bubble.close();
-<<<<<<< HEAD
   }else{
       int size = atoi(argv[1]);
       if (strcmp(argv[2], "Selection") == 0) {
@@ -84,24 +83,6 @@ int main(int argc, char *argv[]) {
         airports.resize(size * 100);
         bubbleSort(airports, reads, writes);
       }
-=======
-  }
-
-  int size = atoi(argv[1]);
-
-  if (strcmp(argv[2], "Selection") == 0) {
-    airports.resize(size * 100);
-    selectionSort(airports, reads, writes);
-  } else if (strcmp(argv[2], "Merge") == 0) {
-    airports.resize(size * 100);
-    mergeSort(airports, reads, writes);
-  } else if (strcmp(argv[2], "Heap") == 0) {
-    airports.resize(size * 100);
-    heapSort(airports, reads, writes);
-  } else if (strcmp(argv[2], "Bubble") == 0) {
-    airports.resize(size * 100);
-    bubbleSort(airports, reads, writes);
->>>>>>> 66dbc89f50fd2b76251f86fb891dceeee7a4471a
   }
 
   // stabilityTest();
