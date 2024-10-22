@@ -1,13 +1,7 @@
 import matplotlib.pyplot as plt
 import os
-import platform
 import subprocess
-from subprocess import Popen, PIPE, check_output
 import time
-
-from netaddr.strategy.ipv6 import int_to_str
-from pyatspi import Selection
-
 
 try:
     if os.path.exists('./build'):
@@ -15,6 +9,7 @@ try:
         
     else:
         subprocess.check_output("mkdir build && cd build && cmake .. && make", stdin=None, stderr=subprocess.STDOUT, shell=True)
+
     # This is Python's way of calling the command line. We use it to compile the C++ files.
 
 except subprocess.CalledProcessError as e:
@@ -23,7 +18,7 @@ except subprocess.CalledProcessError as e:
     raise SystemExit
 
 # get reads and writes
-subprocess.check_output("./build/sorting_binary", stdin=None, stderr=subprocess.STDOUT, shell=True)
+# subprocess.check_output("./build/sorting_binary", stdin=None, stderr=subprocess.STDOUT, shell=True)
 
 
 algorithms = {'Selection': [], 'Merge': [], 'Heap': [], 'Bubble': []}
