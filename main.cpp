@@ -46,22 +46,22 @@ int main(int argc, char *argv[]) {
       reads = 0;
       writes = 0;
       selectionSort(airports, reads, writes);
-      Selection << to_string(i * 100) << endl << reads << endl << writes << endl;
+      Selection << to_string(i * 100) << ',' << reads << ',' << writes << endl;
 
       reads = 0;
       writes = 0;
       mergeSort(airports, reads, writes);
-      Merge << to_string(i * 100) << endl << reads << endl << writes << endl;
+      Merge << to_string(i * 100) << ',' << reads << ',' << writes << endl;
 
       reads = 0;
       writes = 0;
       heapSort(airports, reads, writes);
-      Heap << to_string(i * 100) << endl << reads << endl << writes << endl;
+      Heap << to_string(i * 100) << ',' << reads << ',' << writes << endl;
 
       reads = 0;
       writes = 0;
       bubbleSort(airports, reads, writes);
-      Bubble << to_string(i * 100) << endl << reads << endl << writes << endl;
+      Bubble << to_string(i * 100) << ',' << reads << ',' << writes << endl;
     }
 
     Selection.close();
