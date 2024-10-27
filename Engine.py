@@ -1,3 +1,4 @@
+import pandas
 import matplotlib.pyplot as plt
 import os
 import subprocess
@@ -64,3 +65,24 @@ for algorithm in algorithms:
     plt.savefig('images/' + str(algorithm) + '_Sorting.png')
     # Display the graph in a new window
     plt.show()
+
+
+    path = "data/" + algorithm + ".txt"
+    data = pandas.read_csv(path)
+    x_values = data.iloc[:, 0]
+    reads = data.iloc[:, 1]
+    writes = data.iloc[:, 2]
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(x_values, reads, marker='o', linestyle='-', color='b', label='Reads')
+    plt.plot(x_values, writes, marker='x', linestyle='--', color='r', label='Writes')
+
+    plt.title('Reads and Writes Per Data Size: ' + algorithm)
+    plt.xlabel('Data Size')
+    plt.ylabel('Counts')
+    plt.xticks(x_values)
+    plt.legend()
+
+    plt.savefig('images/' + algorithm + '-Graph.png')
+    plt.show()
+   
