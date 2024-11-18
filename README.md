@@ -1,5 +1,5 @@
 # A Comparison of Sorting Algorithms
-### In this project I compare a couple sorting algorithms and graph their time, rean and write complexities as the size of the data that is being sorted increases.
+### In this project I compare a couple sorting algorithms and graph their time, read and write complexities as the size of the data that is being sorted increases.
 Here is an example output graph from the program showing the reads and writes made by using merge sort. 
 ![Merge Sort](images/Merge-Graph.png) <br>
 This bar chart is showing the amount of time that the program takes to sort the data using merge sort.
